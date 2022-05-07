@@ -1,0 +1,28 @@
+
+
+.container {
+  margin: 50px 0 0 5px;
+}
+
+
+.filter-menu-button {
+  position: absolute;
+  inset: auto 2px 2px auto;
+  outline: 0;
+  width: 20px;
+  aspect-ratio: 1;
+  background: var(--blue-50);
+  border: .5px solid var(--gray-600);
+
+  &:active {
+    border-width: 1px;
+  }
+
+  &:hover {
+    background: var(--blue-100);
+  }
+
+  i {
+    font-size: 10px;
+  }
+}

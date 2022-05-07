@@ -1,0 +1,33 @@
+/**
+Setup basic styles for layout
+ */
+table {
+  //border: 1px solid;
+}
+
+::ng-deep {
+
+  th, td {
+    border: .5px solid;
+    padding: 0 10px 0 5px;
+  }
+
+  th, td {
+    &:first-of-type {
+      border-left: none;
+    }
+  }
+
+  th {
+    min-height: 100px;
+    line-height: 100px;
+    text-align: start;
+    border-top: none;
+    border-bottom: none;
+    background: var(--header-blue);
+  }
+}
+
+table {
+  border-collapse: collapse;
+}

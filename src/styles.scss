@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+Reset default html styles
+ */
+
+// Root selector has higher precedence
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+}
+
+
+// Customer css properties
+
+:root {
+  --header-blue: #dce6f0;
+}
+
+
+p-table.no-appearance {
+  .p-datatable-table {
+    .p-datatable-thead tr th, .p-datatable-tbody tr td {
+      padding: 0;
+      background: transparent;
+      font-weight: 400;
+      font-size: 14px;
+      border: 1px solid var(--gray-400);
+      border-width: 0 1px 1px 0;
+    }
+
+    .p-datatable-thead tr th {
+      padding: 43px 5px;
+      background: var(--header-blue);
+      position: relative;
+    }
+  }
+}
+
+//.p-overlaypanel {
+//  margin-top: 0;
+//}
+
+
+p-sorticon.small > i {
+  font-size: 12px;
+}
