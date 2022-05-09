@@ -13,7 +13,21 @@ export class DataService {
   /**
    * Get data from json file
    */
-  getData(): Observable<any[]> {
-    return this.http.get<any[]>('assets/data.json');
+  getWareHouses(): Observable<any[]> {
+    return this.http.get<any[]>('assets/warehouses.json');
+  }
+
+  /**
+   * Get data from json file
+   */
+  getToolsData(): Observable<any[]> {
+    return this.http.get<any[]>('assets/tools.json');
+  }
+
+  /**
+   * Get data from json file
+   */
+  getProductQuantity(): Observable<any[]> {
+    return this.http.get<any[]>('assets/productQuantity.json');
   }
 }

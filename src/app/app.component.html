@@ -1,4 +1,3 @@
-
 <!--TODO: Search for full custom data-table-->
 <!--
 <div class="container">
@@ -75,40 +74,111 @@
 -->
 
 <div class="container">
-  <p-table [loading]="showLoader" [autoLayout]="true" class="no-appearance" [value]="(data$ | async) ?? []">
-    <ng-template pTemplate="header">
+  <p-table [columns]="columns_1" responsiveLayout="scroll" [loading]="showLoader" [autoLayout]="true" class="no-appearance" [value]="(wareHouses$ | async) ?? []">
+    <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns">
+        <th class="bg-blue" *ngFor="let col of columns">
           {{ col.displayName }}
           <button class="filter-menu-button" (click)="op.toggle($event)"><i class="pi pi-caret-down"></i></button>
 
           <p-overlayPanel #op>
             <ng-template pTemplate>
-              <input type="text" class="p-inputtext-sm" [size]="10" placeholder="Filter">
-              <button [pSortableColumn]="col.name"><p-sortIcon class="small" [field]="col.name"></p-sortIcon></button>
+<!--              <input [ngModel]="col.filter" type="text" [size]="10" placeholder="Filter">-->
+             <div class="filter-container">
+               <p-columnFilter placeholder="Filter" [showMenu]="false" type="text" [field]="col.name"></p-columnFilter>
+               <button pButton class="p-button-rounded p-button-sm " [pSortableColumn]="col.name"><p-sortIcon class="small" [field]="col.name"></p-sortIcon></button>
+             </div>
             </ng-template>
           </p-overlayPanel>
         </th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-data>
+    <ng-template pTemplate="body" let-data let-columns="columns">
       <tr>
-        <td>{{ data.WorkStation }}</td>
-        <td>{{ data.CustomerCode }}</td>
-        <td>{{ data.ProductStockCode }}</td>
-        <td>{{ data.MaterialName }}</td>
-        <td>{{ data.Unit }}</td>
+        <td *ngFor="let col of columns">{{ data[col.name]}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
       <tr>
-        <td [attr.colspan]="columns.length">
+        <td [attr.colspan]="columns_1.length">
           No records found
         </td>
       </tr>
     </ng-template><ng-template pTemplate="loadingbody">
     <tr style="height:34px">
-      <td *ngFor="let col of columns">
+      <td *ngFor="let col of columns_1">
+        <div class="loading-text">Loading...</div>
+      </td>
+    </tr>
+  </ng-template>
+  </p-table>
+  <p-table [columns]="columns_2" responsiveLayout="scroll" [autoLayout]="true" [loading]="showLoader" class="no-appearance" [value]="(tools$ | async) ?? []">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th class="bg-cyan" *ngFor="let col of columns">
+          {{ col.displayName }}
+          <button class="filter-menu-button" (click)="op.toggle($event)"><i class="pi pi-caret-down"></i></button>
+          <p-overlayPanel #op>
+            <ng-template pTemplate>
+              <div class="filter-container">
+                <p-columnFilter placeholder="Filter" [showMenu]="false" type="text" [field]="col.name"></p-columnFilter>
+                <button pButton class="p-button-rounded p-button-sm " [pSortableColumn]="col.name"><p-sortIcon class="small" [field]="col.name"></p-sortIcon></button>
+              </div>
+            </ng-template>
+          </p-overlayPanel>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-columns="columns">
+      <tr>
+        <td class="text-center" [class.bg-cyan]="col.name === columns_2[0].name" style="width: 50px" *ngFor="let col of columns">{{ data[col.name]}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="columns_2.length">
+          No records found
+        </td>
+      </tr>
+    </ng-template><ng-template pTemplate="loadingbody">
+    <tr style="height:34px">
+      <td *ngFor="let col of columns_2">
+        <div class="loading-text">Loading...</div>
+      </td>
+    </tr>
+  </ng-template>
+  </p-table>
+  <p-table [columns]="columns_3" responsiveLayout="scroll" [autoLayout]="true" [loading]="showLoader" class="no-appearance" [value]="(productQuantity$ | async) ?? []">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th [class.bg-pink]="i === 0" [class.bg-light-pink]="i === 1" *ngFor="let col of columns; let i = index">
+          {{ col.displayName }}
+          <button class="filter-menu-button" (click)="op.toggle($event)"><i class="pi pi-caret-down"></i></button>
+          <p-overlayPanel #op>
+            <ng-template pTemplate>
+              <div class="filter-container">
+                <p-columnFilter placeholder="Filter" [showMenu]="false" type="text" [field]="col.name"></p-columnFilter>
+                <button pButton class="p-button-rounded p-button-sm " [pSortableColumn]="col.name"><p-sortIcon class="small" [field]="col.name"></p-sortIcon></button>
+              </div>
+            </ng-template>
+          </p-overlayPanel>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-data let-columns="columns">
+      <tr>
+        <td class="text-center" [class.bg-pink]="i === 0" [class.bg-light-pink]="i === 1" style="width: 50px;" *ngFor="let col of columns; let i = index">{{ data[col.name]}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td [attr.colspan]="columns_3.length">
+          No records found
+        </td>
+      </tr>
+    </ng-template><ng-template pTemplate="loadingbody">
+    <tr style="height:34px">
+      <td *ngFor="let col of columns_3">
         <div class="loading-text">Loading...</div>
       </td>
     </tr>

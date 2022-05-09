@@ -1,30 +1,4 @@
-export const columns = [
-  {
-    name: 'WorkStation',
-    displayName: 'WorkStation',
-    maxWidth: '50'
-  },
-  {
-    name: 'CustomerCode',
-    displayName: 'Customer Code',
-    maxWidth: '50'
-  },
-  {
-    name: 'ProductStockCode',
-    displayName: 'Product Stock Code',
-    maxWidth: '50'
-  },
-  {
-    name: 'MaterialName',
-    displayName: 'Material Name',
-    maxWidth: '50'
-  },
-  {
-    name: 'Unit',
-    displayName: 'Unit',
-    maxWidth: '50'
-  }
-];
+
 
 export const data = [
   {

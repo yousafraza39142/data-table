@@ -8,6 +8,7 @@ import { TableModule } from "primeng/table";
 import { HttpClientModule } from "@angular/common/http";
 import { OverlayPanelModule } from "primeng/overlaypanel";
 import {InputTextModule} from "primeng/inputtext";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {InputTextModule} from "primeng/inputtext";
     HttpClientModule,
     OverlayPanelModule,
     InputTextModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

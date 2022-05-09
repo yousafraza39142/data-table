@@ -18,8 +18,36 @@ body {
 
 :root {
   --header-blue: #dce6f0;
+  --header-pink: #ffb0d0;
+  --header-light-pink: #ffc9e0;
+  --header-cyan-blue: #91cfda;
 }
 
+
+//---------------------------
+// Overrides
+//---------------------------
+
+.bg-blue {
+  background: var(--header-blue) !important;
+}
+
+.bg-cyan {
+  background: var(--header-cyan-blue) !important;
+}
+
+.bg-pink {
+  background: var(--header-pink) !important;
+}
+
+.bg-light-pink {
+  background: var(--header-light-pink) !important;
+}
+
+
+.text-center {
+  text-align: center !important;
+}
 
 p-table.no-appearance {
   .p-datatable-table {
@@ -27,15 +55,24 @@ p-table.no-appearance {
       padding: 0;
       background: transparent;
       font-weight: 400;
-      font-size: 14px;
-      border: 1px solid var(--gray-400);
+      font-size: 12px;
+      border: 1px solid var(--gray-500);
       border-width: 0 1px 1px 0;
     }
 
     .p-datatable-thead tr th {
-      padding: 43px 5px;
-      background: var(--header-blue);
+      //padding: 43px 5px;
       position: relative;
+      height: 100px;
+      //line-height: 100px;
+      //white-space: nowrap;
+      padding-right: 10px;
+      word-break: break-word;
+    }
+
+    .p-datatable-tbody tr td {
+      white-space: nowrap;
+      //padding-right: 10px;
     }
   }
 }
